@@ -17,16 +17,19 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-//
-//	@Bean
-//	public CommandLineRunner commandLinerRunner(UserRepository userRepository, RoleRepository roleRepository) {
-//		return args -> {
+
+	@Bean
+	public CommandLineRunner commandLinerRunner(UserRepository userRepository, RoleRepository roleRepository) {
+		return args -> {
 //			var role = Role.builder().nom("ADMIN").description("do anythings").build();
 //			role = roleRepository.save(role);
 //			var user = User.builder().nom("meed").prenom("astitou").email("astitou@gamil.com").passwrod("123123")
 //					.role(role).build();
 //			user = userRepository.save(user);
-//		};
-//
-//	}
+			
+			userRepository.deleteAll();
+			roleRepository.deleteAll();
+		};
+
+	}
 }
