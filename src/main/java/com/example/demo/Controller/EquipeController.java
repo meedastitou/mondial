@@ -34,15 +34,15 @@ public class EquipeController {
 
 
     @GetMapping
-    public ResponseEntity<?> getAllMatches() {
+    public ResponseEntity<?> getAll() {
         List<Equipe> equipes = equipeService.getAll();
         return equipes.isEmpty()
-                ? ResponseEntity.status(HttpStatus.NOT_FOUND).body("No matches available")
+                ? ResponseEntity.status(HttpStatus.NOT_FOUND).body("No teams available")
                 : ResponseEntity.ok(equipes);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Equipe> getUserById(@PathVariable String id) {
+    public ResponseEntity<Equipe> getById(@PathVariable String id) {
         return ResponseEntity.ok(equipeService.getById(id));
     }
 
