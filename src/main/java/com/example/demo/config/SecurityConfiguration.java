@@ -2,6 +2,7 @@ package com.example.demo.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -29,6 +30,10 @@ public class SecurityConfiguration {
 		.authorizeHttpRequests()
 		.requestMatchers("/api/v1/auth/**")
 		.permitAll()
+		.requestMatchers(HttpMethod.POST, "/**").permitAll()
+        .requestMatchers(HttpMethod.DELETE, "/**").permitAll()
+        .requestMatchers(HttpMethod.GET, "/**").permitAll()
+		.requestMatchers(HttpMethod.PUT, "/**").permitAll()
 		.anyRequest()
 		.authenticated()
 		.and()
