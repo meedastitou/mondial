@@ -4,24 +4,20 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-
-@Builder
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document("role")
-public class Role {
+@Document("ville")
+public class Ville {
 	
 	@Id
 	private String id;
 	
-	
 	private String nom;
-	
 	private String description;
+	private byte[] photo;
 	
 }

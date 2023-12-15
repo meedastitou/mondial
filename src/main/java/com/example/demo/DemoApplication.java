@@ -26,9 +26,9 @@ public class DemoApplication {
 //			var user = User.builder().nom("meed").prenom("astitou").email("astitou@gamil.com").passwrod("123123")
 //					.role(role).build();
 //			user = userRepository.save(user);
-			
-			userRepository.deleteAll();
-			roleRepository.deleteAll();
+//			
+//			userRepository.deleteAll();
+//			roleRepository.deleteAll();
 		};
 
 	}
