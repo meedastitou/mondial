@@ -30,6 +30,7 @@ public class SecurityConfiguration {
 		.requestMatchers("/api/v1/auth/**").permitAll()
 		.requestMatchers("/api/v1/roles/**").permitAll()
 		.requestMatchers("/api/v1/users/**").permitAll()
+		.requestMatchers("**").permitAll()
 		.anyRequest()
 		.authenticated()
 		.and()
