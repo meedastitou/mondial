@@ -20,7 +20,8 @@ public class Equipe {
     @Id
     private String equipe_id;
     private String nom;
-    private Pays pays;
+    private String pays;
+    private Byte drapeau;
     private List<Joueur> joueurs;
     private Entraineur entraineur;
     

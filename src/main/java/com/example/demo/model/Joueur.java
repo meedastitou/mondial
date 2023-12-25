@@ -12,5 +12,6 @@ public class Joueur {
     private Integer age;
     private String nationalite;
     private String position;
+    //add equip and photo
     
 }
