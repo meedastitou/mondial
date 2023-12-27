@@ -1,6 +1,8 @@
 package com.example.demo.request;
 
+
 import com.example.demo.model.Role;
+import com.fasterxml.jackson.annotation.JsonIdentityReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -17,5 +19,6 @@ public class RegisterRequest {
 	private String prenom;
 	private String email;
 	private String password;
-	private Role role;
+	
+	private String role;
 }

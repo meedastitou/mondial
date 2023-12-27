@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.example.demo.config.JwtService;
 import com.example.demo.model.User;
+import com.example.demo.repository.RoleRepository;
 import com.example.demo.request.AuthenticationRequest;
 import com.example.demo.request.RegisterRequest;
 import com.example.demo.response.AuthenticationResponse;
@@ -16,7 +17,7 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class AuthenticationService {
-	
+	private final RoleRepository roleRepository;
 	private final UserService userService;
 	private final PasswordEncoder passwordEncoder;
 	  private final JwtService jwtService;
@@ -28,7 +29,7 @@ public class AuthenticationService {
 		        .prenom(registerRequest.getPrenom())
 		        .email(registerRequest.getEmail())
 		        .password(passwordEncoder.encode(registerRequest.getPassword()))
-		        .role(roleService.getByNom("USER"))
+		        .role(roleRepository.findById(registerRequest.getRole()).get())
 		        .build();
 		userService.saveUser(user);
 		var jwtToken = jwtService.generateToken(user);
