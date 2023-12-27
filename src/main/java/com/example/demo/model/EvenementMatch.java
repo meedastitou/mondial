@@ -16,7 +16,7 @@ public class EvenementMatch {
         
     }
 
-    private LocalDateTime timestamp;
+    private LocalDateTime date;
     private TypeEvenement typeEvenement;
     private String description;
     private Joueur joueur;

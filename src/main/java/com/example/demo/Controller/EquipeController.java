@@ -10,13 +10,18 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.Service.EquipeService;
 
 import com.example.demo.model.Equipe;
+
+import jakarta.validation.Valid;
 
 
 
@@ -28,9 +33,15 @@ public class EquipeController {
     private  EquipeService equipeService;
 
     @PostMapping
-    public Equipe create(@RequestBody Equipe equipe) {
-        return equipeService.save(equipe);
-    }
+    public ResponseEntity<String> createTeam(
+        @RequestParam("drapeau") MultipartFile flagImage,
+        @Valid @RequestPart("data") Equipe equipe) {
+
+    
+        equipeService.save(equipe, flagImage);
+
+        return ResponseEntity.ok("Team created successfully");
+}
 
 
     @GetMapping
@@ -48,9 +59,15 @@ public class EquipeController {
 
 
     @PutMapping("/{id}")
-    public Equipe update(@PathVariable String id, @RequestBody Equipe updatedEquipe) {
-    	updatedEquipe.setEquipe_id(id);
-        return equipeService.save(updatedEquipe);
+    public Equipe update(@PathVariable String id, 
+                        @Valid @RequestPart("data") Equipe updatedEquipe,
+                        @RequestParam(name = "drapeau", required = false) MultipartFile flagImage) {
+        updatedEquipe.setEquipe_id(id);
+
+        // Check if a new flag image is provided
+        equipeService.save(updatedEquipe, flagImage);
+
+        return updatedEquipe;
     }
 
     @DeleteMapping("/{id}")

@@ -14,8 +14,6 @@ public interface MatchService {
 
     String save(Match match);
 
-    void update(String id, Match match) throws MatchException;
-
     void delete(String id);
 
     Match getOne(String id) throws MatchException;

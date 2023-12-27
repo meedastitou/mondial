@@ -62,13 +62,10 @@ public class MatchController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updateMatch(@PathVariable String id, @RequestBody Match match) {
+    public ResponseEntity<String> updateMatch(@RequestBody Match match) {
         try {
-            System.out.println("Received PUT request for match ID: " + id);
-            
-            System.out.println("Received match details: " + match);
-            matchService.update(id, match);
-            return ResponseEntity.ok("Updated match with id " + id);
+            String updatedMatch = matchService.save(match);
+            return ResponseEntity.ok(updatedMatch);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }

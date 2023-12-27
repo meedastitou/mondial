@@ -42,26 +42,6 @@ public class MatchServiceImpl implements MatchService {
         return matchRepository.findAll();
     }
 
-    @Override
-    public void update(String id, Match match) throws MatchException {
-      
-
-        Match updatedMatch = matchRepository.findById(id)
-                .orElseThrow(() -> new MatchException(MatchException.NotFoundException(id)));
-
-        updatedMatch.setStade(match.getStade());
-        updatedMatch.setDateTime(match.getDateTime());
-        updatedMatch.setEquipe1(match.getEquipe1());
-        updatedMatch.setEquipe2(match.getEquipe2());
-        updatedMatch.setScore_equipe1(match.getScore_equipe1());
-        updatedMatch.setScore_equipe2(match.getScore_equipe2());
-        updatedMatch.setStatus(match.getStatus());
-        updatedMatch.setEvenements(match.getEvenements());
-
-        matchRepository.save(updatedMatch);
-
-
-    }
 
     @Override
     public void delete(String id){
@@ -95,14 +75,11 @@ public class MatchServiceImpl implements MatchService {
 
         
         
-  if (equipe != null && !equipe.isEmpty()) {
-        criteria.add(
-            new Criteria().orOperator(
-                Criteria.where("equipe1.nom").is(equipe),
-                Criteria.where("equipe2.nom").is(equipe)
-            )
-        );
-    }
+        /*if (equipe != null && !equipe.isEmpty()) {
+        
+        criteria.add(Criteria.where("equipe1.nom").is(equipe));
+        
+        }*/
         
 
         if(!criteria.isEmpty()){

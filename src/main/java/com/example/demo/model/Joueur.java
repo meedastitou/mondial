@@ -1,17 +1,31 @@
 package com.example.demo.model;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
+
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Document("Joueur")
 public class Joueur {
 
-    private String nom;
-    private String prenom;
+    @Id
+    private String id;
+    private String nomComplet;
     private Integer age;
-    private String nationalite;
+    @DBRef
+    private Equipe equipe;
     private String position;
-    //add equip and photo
+    @Field("photo")
+    private byte[] photo;
+    
     
 }
