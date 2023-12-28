@@ -2,6 +2,8 @@ package com.example.demo.Service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import com.example.demo.model.Event;
 
 public interface EventService {
@@ -13,4 +15,6 @@ public interface EventService {
 	public List<Event> getAllEvents();
 	
 	public void deleteEvent(Event event) ;
+
+	public Event setPhotosToEvent(Event event, List<MultipartFile> photos );
 }

@@ -1,10 +1,12 @@
 package com.example.demo.Service.Impl;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.Service.EventService;
 import com.example.demo.model.Event;
@@ -35,5 +37,17 @@ public class EventServiceImpl implements EventService {
 		eventRepository.delete(event);
 	}
 	
-	
+	public Event setPhotosToEvent(Event event, List<MultipartFile> photos ){
+		List<byte[]>  photoByte = new ArrayList<>();
+		for (MultipartFile photo : photos) {
+			try {
+				photoByte.add(photo.getBytes());
+			} catch (Exception e) {
+				e.getStackTrace();
+			}
+		}
+		event.setPhotos(photoByte);
+
+		return event;
+	}
 }
