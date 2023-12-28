@@ -30,7 +30,7 @@ public class VilleController {
     private final VilleService villeService;
 
     @PostMapping
-    public ResponseEntity<?> createVille(@RequestParam("photo") MultipartFile file, @Valid @RequestPart("data") Ville ville){
+    public ResponseEntity<?> createVille(@RequestParam("photo") MultipartFile file, @Valid @RequestBody Ville ville){
     	
     	try {
 			ville.setPhoto(file.getBytes());
@@ -54,7 +54,7 @@ public class VilleController {
     }
 
 
-    @PutMapping("/{id}")
+    @PutMapping()
     public Ville updateVille( @RequestBody Ville updatedVille) {
         return villeService.saveVille(updatedVille);
     }
