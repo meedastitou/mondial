@@ -3,6 +3,7 @@ package com.example.demo.Controller;
 import java.io.IOException;
 import java.util.List;
 
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -30,7 +31,7 @@ public class VilleController {
     private final VilleService villeService;
 
     @PostMapping
-    public ResponseEntity<?> createVille(@RequestParam("photo") MultipartFile file, @Valid @RequestBody Ville ville){
+    public ResponseEntity<?> createVille(@RequestParam("photo") MultipartFile file, @Valid @RequestPart("data") Ville ville){
     	
     	try {
 			ville.setPhoto(file.getBytes());
@@ -45,17 +46,21 @@ public class VilleController {
 
     @GetMapping
     public ResponseEntity<List<Ville>> getAllVilles() {
+    	
         return ResponseEntity.ok(villeService.getAllVilles());
     }
 
     @GetMapping("/{ville}")
     public ResponseEntity<Ville> getVilleById(@PathVariable Ville ville) {
         return ResponseEntity.ok(ville);
+//        		.contentType(MediaType.IMAGE_JPEG)
+//        		.body(ville.getPhoto());// or MediaType.IMAGE_PNG, etc.
+
     }
 
 
     @PutMapping()
-    public Ville updateVille( @RequestBody Ville updatedVille) {
+    public Ville updateVille( @RequestBody Ville updatedVille) {    	
         return villeService.saveVille(updatedVille);
     }
 

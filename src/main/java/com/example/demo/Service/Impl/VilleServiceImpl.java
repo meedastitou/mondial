@@ -16,8 +16,14 @@ public class VilleServiceImpl implements VilleService {
 	VilleRepository villeRepository;
 	
 	
-	public Ville saveVille(Ville ville) {
-		return villeRepository.save(ville);
+	public Ville saveVille(Ville villeUpdated) {
+		if(villeUpdated.getPhoto() == null) {
+		
+			Ville ville = villeRepository.findById(villeUpdated.getId()).get();
+			villeUpdated.setPhoto(ville.getPhoto());
+		
+		}
+		return villeRepository.save(villeUpdated);
 	}
 	
 	public Ville getById(String id) {

@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.example.demo.Service.EventService;
 import com.example.demo.model.Event;
+import com.example.demo.model.Ville;
 import com.example.demo.repository.EventRepository;
 
 @Service
@@ -19,8 +20,13 @@ public class EventServiceImpl implements EventService {
 	EventRepository eventRepository;
 	
 	
-	public Event saveEvent(Event event) {
-		return eventRepository.save(event);
+	public Event saveEvent(Event eventUpdated) {
+		
+		if(eventUpdated.getPhotos() == null) {
+			Event event = eventRepository.findById(eventUpdated.getId()).get();
+			eventUpdated.setPhotos(event.getPhotos());
+		}
+		return eventRepository.save(eventUpdated);
 	}
 	
 	public Event getById(String id) {
