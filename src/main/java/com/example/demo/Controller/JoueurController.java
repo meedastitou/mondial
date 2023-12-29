@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.example.demo.DTO.JoueurDTO;
 import com.example.demo.Service.JoueurService;
 import com.example.demo.model.Joueur;
 
@@ -25,7 +26,7 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping("/joueur")
+@RequestMapping("/api/v1/joueur")
 public class JoueurController {
     
 
@@ -43,20 +44,22 @@ public class JoueurController {
         }
     }
 
-
+ 
 
     @GetMapping
     public ResponseEntity<?> getAllPlayers() {
-        List<Joueur> joueurs = joueurService.getAll();
+        List<JoueurDTO> joueurs = joueurService.getAll();
         return joueurs.isEmpty()
                 ? ResponseEntity.status(HttpStatus.NOT_FOUND).body("No joueurs available")
                 : ResponseEntity.ok(joueurs);
     }
 
+     
+
     @GetMapping("/{id}")
     public ResponseEntity<?> getPlayerById(@PathVariable String id) {
         try {
-            Joueur joueur = joueurService.getOne(id);
+            JoueurDTO joueur = joueurService.getOne(id);
             return ResponseEntity.ok(joueur);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());

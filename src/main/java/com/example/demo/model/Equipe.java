@@ -1,14 +1,17 @@
 package com.example.demo.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.Transient;
+
 import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.mapping.Field;
 
+
 import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -28,6 +31,7 @@ public class Equipe {
     private String equipe_id;
     private String pays;
 
+    @JsonManagedReference
     @DBRef
     private List<Joueur> joueurs;
     @DBRef
@@ -35,9 +39,13 @@ public class Equipe {
 
     @Field("drapeau")
     private byte[] drapeau;
-    @Transient
-    public List<Joueur> getJoueurs() {
-        return joueurs;
+
+
+     public void addJoueur(Joueur joueur) {
+        if (joueurs == null) {
+            joueurs = new ArrayList<>();
+        }
+        joueurs.add(joueur);
     }
     
 }
