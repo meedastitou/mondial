@@ -2,8 +2,8 @@ package com.example.demo.Service;
 
 import java.util.List;
 
-import com.example.demo.DTO.JoueurDTO;
 import com.example.demo.model.Joueur;
+import com.example.demo.response.JoueurResponse;
 
 import jakarta.validation.Valid;
 
@@ -11,9 +11,9 @@ public interface JoueurService {
 
     String save(@Valid Joueur joueur);
 
-    List<JoueurDTO> getAll();
+    List<JoueurResponse> getAll();
 
-    JoueurDTO getOne(String id) throws Exception;
+    JoueurResponse getOne(String id) throws Exception;
 
     void delete(String id);
     

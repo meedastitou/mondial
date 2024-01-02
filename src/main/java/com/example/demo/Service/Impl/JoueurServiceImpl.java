@@ -9,12 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.DTO.JoueurDTO;
 import com.example.demo.Service.JoueurService;
 import com.example.demo.model.Equipe;
 import com.example.demo.model.Joueur;
 import com.example.demo.repository.EquipeRepository;
 import com.example.demo.repository.JoueurRepository;
+import com.example.demo.response.JoueurResponse;
 
 import jakarta.validation.Valid;
 @Service
@@ -60,12 +60,12 @@ public class JoueurServiceImpl implements JoueurService {
     
    
     @Override
-    public List<JoueurDTO> getAll() {
+    public List<JoueurResponse> getAll() {
         List<Joueur> joueurs = joueurRepository.findAll();
-        List<JoueurDTO> playerInfoList = new ArrayList<>();
+        List<JoueurResponse> playerInfoList = new ArrayList<>();
 
         for (Joueur joueur : joueurs) {
-            JoueurDTO playerInfo = new JoueurDTO();
+            JoueurResponse playerInfo = new JoueurResponse();
             playerInfo.setId(joueur.getId());
             playerInfo.setNomComplet(joueur.getNomComplet());
             playerInfo.setAge(joueur.getAge());
@@ -83,12 +83,12 @@ public class JoueurServiceImpl implements JoueurService {
     }
 
     @Override
-    public JoueurDTO getOne(String id) throws Exception {
+    public JoueurResponse getOne(String id) throws Exception {
         Optional<Joueur> joueurOptional = joueurRepository.findById(id);
     
         if (joueurOptional.isPresent()) {
             Joueur joueur = joueurOptional.get();
-            JoueurDTO playerInfo = new JoueurDTO();
+            JoueurResponse playerInfo = new JoueurResponse();
             playerInfo.setId(joueur.getId());
             playerInfo.setNomComplet(joueur.getNomComplet());
             playerInfo.setAge(joueur.getAge());

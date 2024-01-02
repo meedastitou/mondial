@@ -10,17 +10,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.example.demo.DTO.JoueurDTO;
 import com.example.demo.Service.JoueurService;
 import com.example.demo.model.Joueur;
-
+import com.example.demo.response.JoueurResponse;
 
 import jakarta.validation.Valid;
 
@@ -48,7 +47,7 @@ public class JoueurController {
 
     @GetMapping
     public ResponseEntity<?> getAllPlayers() {
-        List<JoueurDTO> joueurs = joueurService.getAll();
+        List<JoueurResponse> joueurs = joueurService.getAll();
         return joueurs.isEmpty()
                 ? ResponseEntity.status(HttpStatus.NOT_FOUND).body("No joueurs available")
                 : ResponseEntity.ok(joueurs);
@@ -59,7 +58,7 @@ public class JoueurController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getPlayerById(@PathVariable String id) {
         try {
-            JoueurDTO joueur = joueurService.getOne(id);
+            JoueurResponse joueur = joueurService.getOne(id);
             return ResponseEntity.ok(joueur);
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
@@ -67,8 +66,9 @@ public class JoueurController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<String> updatePlayer(@RequestBody Joueur joueur) {
+    public ResponseEntity<String> updatePlayer(@RequestParam("photo") MultipartFile file, @Valid @RequestPart("data")  Joueur joueur) {
         try {
+            joueur.setPhoto(file.getBytes());
             String updatedJoueur = joueurService.save(joueur);
             return ResponseEntity.ok(updatedJoueur);
         } catch (Exception e) {

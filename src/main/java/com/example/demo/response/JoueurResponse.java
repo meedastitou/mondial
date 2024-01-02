@@ -1,4 +1,4 @@
-package com.example.demo.DTO;
+package com.example.demo.response;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class JoueurDTO {
+public class JoueurResponse {
     private String id;
     private String nomComplet;
     private Integer age;

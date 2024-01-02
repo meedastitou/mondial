@@ -41,11 +41,15 @@ public class Equipe {
     private byte[] drapeau;
 
 
-     public void addJoueur(Joueur joueur) {
+    public void addJoueur(Joueur joueur) {
         if (joueurs == null) {
             joueurs = new ArrayList<>();
         }
         joueurs.add(joueur);
+    }
+
+    public void addEntraineur(Entraineur entraineur){
+        this.entraineur=entraineur;
     }
     
 }
