@@ -1,44 +1,112 @@
 package com.example.demo.Service.Impl;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+
+
 import org.springframework.stereotype.Service;
 
 import com.example.demo.Service.JoueurService;
+import com.example.demo.model.Equipe;
 import com.example.demo.model.Joueur;
+import com.example.demo.repository.EquipeRepository;
 import com.example.demo.repository.JoueurRepository;
+import com.example.demo.response.JoueurResponse;
 
 import jakarta.validation.Valid;
-
 @Service
 public class JoueurServiceImpl implements JoueurService {
 
-
+   
     @Autowired
     private JoueurRepository joueurRepository;
-    @Override
+
+    @Autowired
+    private EquipeRepository equipeRepository; 
+
     
+
+    @Override
     public String save(@Valid Joueur joueur) {
-        return joueurRepository.save(joueur).getId();
-    }
-
-    @Override
-    public List<Joueur> getAll() {
-        return joueurRepository.findAll();
-    }
-
-    @Override
-    public Joueur getOne(String id){
-        return joueurRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Error: Joueur is not found."));
-        
+        if (joueur.getPhoto() == null) {
+            Joueur joueurUpdated = joueurRepository.findById(joueur.getId())
+                    .orElseThrow(() -> new RuntimeException("Error: Joueur is not found."));
+            joueur.setPhoto(joueurUpdated.getPhoto());
+        }
+    
+        // Save the player to generate the ID
+        Joueur savedJoueur = joueurRepository.save(joueur);
+    
+        // Associate the player with a team
+        if (savedJoueur.getEquipe() != null && savedJoueur.getEquipe().getEquipe_id() != null) {
+            Equipe equipe = equipeRepository.findById(savedJoueur.getEquipe().getEquipe_id())
+                    .orElseThrow(() -> new RuntimeException("Error: Team is not found."));
+            
+            // Add the player to the team
+            equipe.addJoueur(savedJoueur);
+            equipeRepository.save(equipe);
+    
+            savedJoueur.setEquipe(equipe);
+        } else {
+            
+            throw new RuntimeException("Error: Joueur's team information is missing.");
+        }
+    
+        return savedJoueur.getId();
     }
     
+   
+    @Override
+    public List<JoueurResponse> getAll() {
+        List<Joueur> joueurs = joueurRepository.findAll();
+        List<JoueurResponse> playerInfoList = new ArrayList<>();
 
+        for (Joueur joueur : joueurs) {
+            JoueurResponse playerInfo = new JoueurResponse();
+            playerInfo.setId(joueur.getId());
+            playerInfo.setNomComplet(joueur.getNomComplet());
+            playerInfo.setAge(joueur.getAge());
+            playerInfo.setPosition(joueur.getPosition());
+            playerInfo.setPhoto(joueur.getPhoto());
+
+            if (joueur.getEquipe() != null) {
+                playerInfo.setEquipePays(joueur.getEquipe().getPays()); 
+            }
+
+            playerInfoList.add(playerInfo);
+        }
+
+        return playerInfoList;
+    }
+
+    @Override
+    public JoueurResponse getOne(String id) throws Exception {
+        Optional<Joueur> joueurOptional = joueurRepository.findById(id);
+    
+        if (joueurOptional.isPresent()) {
+            Joueur joueur = joueurOptional.get();
+            JoueurResponse playerInfo = new JoueurResponse();
+            playerInfo.setId(joueur.getId());
+            playerInfo.setNomComplet(joueur.getNomComplet());
+            playerInfo.setAge(joueur.getAge());
+            playerInfo.setPosition(joueur.getPosition());
+            playerInfo.setPhoto(joueur.getPhoto());
+    
+            if (joueur.getEquipe() != null) {
+                playerInfo.setEquipePays(joueur.getEquipe().getPays());
+            }
+    
+            return playerInfo;
+        } else {
+            throw new Exception("Joueur with id " + id + " not found");
+        }
+    }
+    
     @Override
     public void delete(String id) {
         joueurRepository.deleteById(id);
     }
-    
 }

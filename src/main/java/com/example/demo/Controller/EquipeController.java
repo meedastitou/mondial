@@ -26,7 +26,7 @@ import jakarta.validation.Valid;
 
 
 @RestController
-@RequestMapping("/equipe")
+@RequestMapping("/api/v1/equipe")
 public class EquipeController {
     
     @Autowired
@@ -60,8 +60,8 @@ public class EquipeController {
 
     @PutMapping("/{id}")
     public Equipe update(@PathVariable String id, 
-                        @Valid @RequestPart("data") Equipe updatedEquipe,
-                        @RequestParam(name = "drapeau", required = false) MultipartFile flagImage) {
+                        @RequestParam(name = "drapeau", required = false) MultipartFile flagImage,
+                        @Valid @RequestPart("data") Equipe updatedEquipe) {
         updatedEquipe.setEquipe_id(id);
 
         // Check if a new flag image is provided

@@ -25,15 +25,15 @@ public class EquipeServiceImpl  implements EquipeService{
 	public void save(@Valid Equipe equipe, MultipartFile flagImage) {
     try {
         if (flagImage != null && !flagImage.isEmpty()) {
-            // If a new flag image is provided, update the Equipe document and save the new flag image
+            
             equipe.setDrapeau(flagImage.getBytes());
         }
 
-        // Save team details to MongoDB (Equipe collection)
+        
         equipeRepository.save(equipe);
     } catch (IOException e) {
-        // Handle the IOException appropriately
-        e.printStackTrace(); // Print the stack trace for now, you might want to log it or throw a custom exception
+        
+        e.printStackTrace(); 
     }
 }
 
