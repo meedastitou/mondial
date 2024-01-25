@@ -14,20 +14,24 @@
 5. [Conclusion](##5conclusion)
 ## 1. Introduction
 Notre vision est de créer une application web pour la Coupe du Monde 2030 au Maroc, où les fans de football du monde entier pourront non seulement suivre l'actualité des matchs, mais aussi explorer et célébrer la culture marocaine. En unissant sport, tourisme et technologie, l’idée vise à laisser une empreinte positive et à promouvoir le Maroc comme destination culturelle incontournable. Nous aspirons à créer des souvenirs impérissables pour les visiteurs et à soutenir le développement durable du Maroc à travers l’exposition de sa riche diversité culturelle.
-***
+
 ![Home page](/src/main/resources/photo/home.jpeg)
-***
+
 ## 2. Objectifs du projet
 **Gestion des Matches :** Le site offre une fonctionnalité de suivi des matches en temps réel, fournissant des informations détaillées sur les équipes, les horaires et les résultats.
+
 ![Match page](/src/main/resources/photo/match.jpeg)
 
 **Tourisme et Culture :** Intégration de recommandations touristiques, mettant en avant la riche culture marocaine, des guides pour explorer les sites historiques.
-![Culture page](/src/main/resources/photo/monument.jpeg)
+
+![Culture page](/src/main/resources/photo/monument.png)
 
 **Exploration Culturelle :** L'application permet aux utilisateurs d'explorer la richesse culturelle du Maroc, mettant en avant sa cuisine, ses monuments et d'autres éléments emblématiques.
+
 ![Cuisine page](/src/main/resources/photo/food.jpeg)
 
 **Suivi des Équipes et Joueurs :** Offrir un suivi des équipes, des joueurs et des entraîneurs.
+
 ![Players and teams page](/src/main/resources/photo/teams.jpeg)
 ![Players and teams page](/src/main/resources/photo/players.jpeg)
 ## 3. Technologies
