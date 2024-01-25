@@ -16,13 +16,14 @@ Notre vision est de créer une application web pour la Coupe du Monde 2030 au Ma
 ***
 ## 2. Objectifs du projet
 **Gestion des Matches :** Le site offre une fonctionnalité de suivi des matches en temps réel, fournissant des informations détaillées sur les équipes, les horaires et les résultats.
-
+![Match page](/src/main/resources/photo/match.jpeg)
 **Tourisme et Culture :** Intégration de recommandations touristiques, mettant en avant la riche culture marocaine, des guides pour explorer les sites historiques.
-
+![Culture page](/src/main/resources/photo/monument.jpeg)
 **Exploration Culturelle :** L'application permet aux utilisateurs d'explorer la richesse culturelle du Maroc, mettant en avant sa cuisine, ses monuments et d'autres éléments emblématiques.
-
+![Cuisine page](/src/main/resources/photo/food.jpeg)
 **Suivi des Équipes et Joueurs :** Offrir un suivi des équipes, des joueurs et des entraîneurs.
-
+![Players and teams page](/src/main/resources/photo/teams.jpeg)
+![Players and teams page](/src/main/resources/photo/players.jpeg)
 ## 3. Technologies
 **Angular(Front End) :** est un framework open source développé par Google pour construire des applications web dynamiques et interactives côté client
 
