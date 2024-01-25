@@ -101,4 +101,42 @@ L'interface d'authentification se présente sous la forme d'un formulaire élég
 ![auth page](/src/main/resources/photo/auth.png)
 
 ### 4.2 Back end - Spring boot
+
+
+Cette section présente la structure détaillée de la partie backend, mettant l'accent sur les composants clés tels que les modèles, les interfaces de repos, les services, les implémentations de services, et les contrôleurs REST.
+
+![codeStructure page](/src/main/resources/photo/codeStructure.png)
+
+__*Modèles (Model)*__
+
+Les modèles représentent les données métier de l'application. Ce sont des objets simples qui encapsulent les informations nécessaires. Dans le contexte de la Coupe du Monde 2030 au Maroc, des modèles comme Match, Équipe, Joueur, etc., sont créés pour représenter les entités liées au football.
+
+__*Interfaces de Repos (Repository)*__
+
+Les interfaces de repos définissent les opérations de base pour accéder et manipuler les données dans la base de données.  Ces interfaces étendent généralement les interfaces fournies par Spring Data JPA, pour notre cas, Spring Data pour MongoDB,facilitant ainsi les opérations courantes telles que la récupération, l'ajout, la mise à jour ou la suppression de données.
+
+__*Services*__
+
+Les services représentent la couche métier de l'application. Ils implémentent la logique métier spécifique à l'application. Les services interagissent souvent avec les interfaces de repos pour accéder aux données nécessaires à l'application.
+
+__*Implémentations de Services (Service Implementation)*__
+
+Les implémentations de services sont les classes concrètes qui fournissent l'implémentation réelle de la logique métier définie dans les services. Ces classes interagissent avec les interfaces de repos pour accéder à la base de données et effectuer des opérations sur les données.
+
+__*Contrôleurs REST (RestController)*__
+
+Les contrôleurs REST exposent les fonctionnalités de l'application en tant qu'API RESTful. Ils répondent aux requêtes HTTP en invoquant les méthodes appropriées des services. Les contrôleurs sont responsables de la gestion des entrées HTTP, de l'appel des services nécessaires, et de la création des réponses HTTP.
+
+#### Structure des Microservices
+
+**Microservices - Eureka :** Eureka est utilisé comme service de découverte, facilitant la gestion et le déploiement des microservices.
+
+**Microservice Principal :** Ce microservice englobe les classes liées aux matchs, équipes, joueurs, entraîneurs, villes et événements, avec des fonctionnalités d'authentification et de sécurité où nous avons intégré Spring Security pour garantir un accès sécurisé aux fonctionnalités de l'application. La gestion des jetons JWT (JSON Web Tokens) renforce l'authentification, garantissant une expérience utilisateur sécurisée.
+
+**Microservice Cuisine :** Ce microservice met en avant la classe dédiée à la cuisine marocaine, offrant une expérience sensorielle complète aux utilisateurs.
+
+**Microservice Monument :** Ce microservice présente la classe dédiée aux monuments de chaque ville, permettant aux utilisateurs de découvrir le patrimoine culturel du Maroc.
+
+**Microservice API Gateway :** L'API Gateway facilite le routage entre les microservices et le front end, agissant comme une porte d'entrée centralisée.
+
 ## 5. Conclusion
