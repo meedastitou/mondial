@@ -74,7 +74,7 @@ Le dossier "frontend" englobe la logique côté client développée avec Angular
 
 **service.service :** Fichier de service définissant les services Angular pour la gestion des données et des fonctionnalités à travers l'application.
 
-*Accueil :*
+__*Accueil :*__
 
 Le header de CupExplorer est minutieusement conçu pour offrir une expérience utilisateur intuitive et accessible.
 Ce qui nous donne cette interface :   
@@ -86,7 +86,7 @@ Et pout le footer :
 ![Footer page](/src/main/resources/photo/footer.png)
 
 
-*Section d'Accueil :*
+__*Section d'Accueil :*__
 
 Le composant Home met en lumière le Maroc en tant que pays hôte de la Coupe du Monde 2030. Il offre une introduction à Visit Morocco, encourage l'exploration des villes hôtes, présente des informations sur les destinations, expose les équipes de villes avec des liens pour en savoir plus, et propose des recommandations de services de voyage diversifiés. Les sections clés comprennent "À Propos de Nous" ("About Us"), "Destinations" ("Destination"), "Équipes" ("Team"), et "Services". L'objectif de cette composante est de fournir une expérience immersive incitant à découvrir la culture, les traditions, et les services exceptionnels du Maroc.
 
@@ -94,7 +94,7 @@ Le composant Home met en lumière le Maroc en tant que pays hôte de la Coupe du
 
 ![Home2 page](/src/main/resources/photo/homeSec2.png)
 
-*Authentification :*
+__*Authentification :*__
 
 L'interface d'authentification se présente sous la forme d'un formulaire élégant. Elle offre aux utilisateurs la possibilité de s'inscrire avec leur adresse e-mail et mot de passe
 
