@@ -50,5 +50,55 @@ Notre vision est de créer une application web pour la Coupe du Monde 2030 au Ma
 ## 4. Structure du projet
 ### 4.1 Front end - Angular
 
+Le dossier "frontend" englobe la logique côté client développée avec Angular. La structure se compose de plusieurs sections clés :
+
+**acceuil :** Contient les composants et fichiers dédiés à la page d'accueil, avec des éléments visuels et fonctionnels spécifiques à cette section.
+
+**admin-layout :** Regroupe les composants et fichiers pour la mise en page de l'interface administrateur, intégrant des fonctionnalités spécifiques à l'administration.
+
+**auth-layout :** Englobe les composants liés à l'authentification et à l'autorisation, pouvant inclure des formulaires de connexion et d'inscription.
+
+**client-layout :** Comprend les composants pour la mise en page destinée aux utilisateurs clients, avec des fonctionnalités adaptées aux utilisateurs finaux.
+
+**destination-layout :** Rassemble les composants liés à la gestion des destinations touristiques, incluant l'affichage, la recherche, et d'autres fonctionnalités liées au tourisme.
+
+**home :** Contient des composants spécifiques à la page d'accueil, facilitant la première interaction des utilisateurs avec l'application.
+
+**reco-layout-component :** Dossier dédié aux composants liés à la mise en page des recommandations touristiques, pouvant inclure des fonctionnalités de recommandation personnalisée et d'affichage des points d'intérêt.
+
+**app-routing.module.ts :** Définit les routes de l'application pour une navigation fluide entre les différentes pages et mises en page.
+
+**app.component :** Définit le composant racine de l'application, agissant comme le point d'entrée principal, avec la spécification du modèle et du style associés.
+
+**app.module.ts :** Fichier crucial déclarant et important tous les modules nécessaires à l'application, organisant les dépendances et initialisant l'application.
+
+**service.service :** Fichier de service définissant les services Angular pour la gestion des données et des fonctionnalités à travers l'application.
+
+*Accueil :*
+
+Le header de CupExplorer est minutieusement conçu pour offrir une expérience utilisateur intuitive et accessible.
+Ce qui nous donne cette interface :   
+ 
+![Acceuil page](/src/main/resources/photo/home.jpeg)
+
+Et pout le footer : 
+
+![Footer page](/src/main/resources/photo/footer.png)
+
+
+*Section d'Accueil :*
+
+Le composant Home met en lumière le Maroc en tant que pays hôte de la Coupe du Monde 2030. Il offre une introduction à Visit Morocco, encourage l'exploration des villes hôtes, présente des informations sur les destinations, expose les équipes de villes avec des liens pour en savoir plus, et propose des recommandations de services de voyage diversifiés. Les sections clés comprennent "À Propos de Nous" ("About Us"), "Destinations" ("Destination"), "Équipes" ("Team"), et "Services". L'objectif de cette composante est de fournir une expérience immersive incitant à découvrir la culture, les traditions, et les services exceptionnels du Maroc.
+
+![Home1 page](/src/main/resources/photo/homeSection.png)
+
+![Home2 page](/src/main/resources/photo/homeSec2.png)
+
+*Authentification :*
+
+L'interface d'authentification se présente sous la forme d'un formulaire élégant. Elle offre aux utilisateurs la possibilité de s'inscrire avec leur adresse e-mail et mot de passe
+
+![auth page](/src/main/resources/photo/auth.png)
+
 ### 4.2 Back end - Spring boot
 ## 5. Conclusion
