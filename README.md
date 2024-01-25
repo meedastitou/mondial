@@ -129,15 +129,15 @@ Les contrôleurs REST exposent les fonctionnalités de l'application en tant qu'
 
 #### Structure des Microservices
 
-**Microservices - Eureka :** Eureka est utilisé comme service de découverte, facilitant la gestion et le déploiement des microservices.
+_**Microservices - Eureka :**_ Eureka est utilisé comme service de découverte, facilitant la gestion et le déploiement des microservices.
 
-**Microservice Principal :** Ce microservice englobe les classes liées aux matchs, équipes, joueurs, entraîneurs, villes et événements, avec des fonctionnalités d'authentification et de sécurité où nous avons intégré Spring Security pour garantir un accès sécurisé aux fonctionnalités de l'application. La gestion des jetons JWT (JSON Web Tokens) renforce l'authentification, garantissant une expérience utilisateur sécurisée.
+_**Microservice Principal :**_ Ce microservice englobe les classes liées aux matchs, équipes, joueurs, entraîneurs, villes et événements, avec des fonctionnalités d'authentification et de sécurité où nous avons intégré Spring Security pour garantir un accès sécurisé aux fonctionnalités de l'application. La gestion des jetons JWT (JSON Web Tokens) renforce l'authentification, garantissant une expérience utilisateur sécurisée.
 
-**Microservice Cuisine :** Ce microservice met en avant la classe dédiée à la cuisine marocaine, offrant une expérience sensorielle complète aux utilisateurs.
+_**Microservice Cuisine :**_ Ce microservice met en avant la classe dédiée à la cuisine marocaine, offrant une expérience sensorielle complète aux utilisateurs.
 
-**Microservice Monument :** Ce microservice présente la classe dédiée aux monuments de chaque ville, permettant aux utilisateurs de découvrir le patrimoine culturel du Maroc.
+_**Microservice Monument :**_ Ce microservice présente la classe dédiée aux monuments de chaque ville, permettant aux utilisateurs de découvrir le patrimoine culturel du Maroc.
 
-**Microservice API Gateway :** L'API Gateway facilite le routage entre les microservices et le front end, agissant comme une porte d'entrée centralisée.
+_**Microservice API Gateway :**_ L'API Gateway facilite le routage entre les microservices et le front end, agissant comme une porte d'entrée centralisée.
 
 ## 5. Conclusion
 
