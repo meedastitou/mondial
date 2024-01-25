@@ -140,3 +140,5 @@ Les contrôleurs REST exposent les fonctionnalités de l'application en tant qu'
 **Microservice API Gateway :** L'API Gateway facilite le routage entre les microservices et le front end, agissant comme une porte d'entrée centralisée.
 
 ## 5. Conclusion
+
+Le Projet de la Coupe du Monde 2030 au Maroc, avec son application web innovante, se positionne comme un catalyseur pour la promotion du Maroc en tant que destination culturelle de renom. En combinant le sport, le tourisme et la technologie de manière harmonieuse, nous aspirons à laisser des souvenirs impérissables aux visiteurs et à contribuer au développement durable du Maroc. Ce projet repose sur des technologies de pointe et une architecture de microservices pour assurer une expérience utilisateur optimale et sécurisée.
