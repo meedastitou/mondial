@@ -1,0 +1,12 @@
+[submodule "Descover_microservice"]
+	path = Descover_microservice
+	url = https://github.com/meedastitou/Descover_microservice
+[submodule "Gateway_microservice"]
+	path = Gateway_microservice
+	url = https://github.com/meedastitou/Gateway_microservice
+[submodule "Culisine_microservice"]
+	path = Culisine_microservice
+	url = https://github.com/meedastitou/Culisine_microservice
+[submodule "Culture_microservice"]
+	path = Culture_microservice
+	url = https://github.com/meedastitou/Culture_microservice/
